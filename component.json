@@ -1,7 +1,7 @@
 {
     "name": "tea-ms"
   , "repo": "qualiancy/tea-ms"
-  , "version": "0.0.0"
+  , "version": "0.1.0"
   , "description": "Basic time conversations for node.js and the browser."
   , "license": "MIT"
   , "keywords": [
