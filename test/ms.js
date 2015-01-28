@@ -36,6 +36,16 @@ describe('ms.unix()', function () {
     ms.unix().should.equal(now);
   });
 
+  it('should accept numbers', function () {
+    var now = Math.round(new Date().getTime() / 1000);
+    ms.unix(now).should.equal(now);
+  });
+
+  it('should accept timestamp as string', function () {
+    var now = Math.round(new Date().getTime() / 1000);
+    ms.unix('' + now).should.equal(now);
+  });
+
   it('should support a future statement', function () {
     var now = Math.round(new Date().getTime() / 1000) + 10;
     ms.unix('10s').should.equal(now);
