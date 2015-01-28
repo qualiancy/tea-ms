@@ -32,18 +32,28 @@ describe('ms()', function () {
 
 describe('ms.unix()', function () {
   it('should default to now', function () {
-    var now = Math.round(new Date().getTime() / 1000);
+    var now = (new Date().getTime() / 1000) >> 0;
     ms.unix().should.equal(now);
   });
 
+  it('should accept numbers', function () {
+    var now = (new Date().getTime() / 1000) >> 0;
+    ms.unix(now).should.equal(now);
+  });
+
+  it('should accept timestamp as string', function () {
+    var now = (new Date().getTime() / 1000) >> 0;
+    ms.unix('' + now).should.equal(now);
+  });
+
   it('should support a future statement', function () {
-    var now = Math.round(new Date().getTime() / 1000) + 10;
+    var now = ((new Date().getTime() / 1000) >> 0) + 10;
     ms.unix('10s').should.equal(now);
     ms.unix('+10s').should.equal(now);
   });
 
   it('should support a past statement', function () {
-    var now = Math.round(new Date().getTime() / 1000) - 10;
+    var now = ((new Date().getTime() / 1000) >> 0) - 10;
     ms.unix('-10s').should.equal(now);
   });
 });
